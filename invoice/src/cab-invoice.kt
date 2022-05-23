@@ -5,8 +5,10 @@ class CabInvoice {
         val fare_per_unit_time = 1.0
     }
 
-    fun fare(dist: Double, time: Double): Double {
+    fun fare(rides: Ride): Double {
 
+
+        val (dist, time) = rides
         return dist * fare_per_unit_dist + time * fare_per_unit_time
     }
 }
