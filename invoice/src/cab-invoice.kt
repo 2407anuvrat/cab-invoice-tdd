@@ -1,6 +1,7 @@
-class CabInvoice {
+class CabInvoice(rides: List<Ride>) {
 
-    fun fare(rides: List<Ride>): Double {
-        return rides.sumOf { it.calculateFare() }
-    }
+    val totalFare: Double = rides.sumOf { it.calculateFare() }
+    val totalRides: Int = rides.size
+    val avgCost = if (totalRides == 0) 0.0 else totalFare/totalRides
+
 }
