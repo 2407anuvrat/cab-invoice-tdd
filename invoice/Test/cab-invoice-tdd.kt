@@ -20,7 +20,15 @@ class CabInvoiceTest : StringSpec() {
             CabInvoice().fare(listOf( Ride(1.0, 2.3))) shouldBe 12.3
         }
 
-        "fare of multiple ride object is implemented"{
+        "fare of 2 rides object is calculated"{
+            CabInvoice().fare(listOf( Ride(1.0, 0.0), Ride(2.0, 1.0), Ride(0.0, 0.0))) shouldBe 31
+        }
+
+        "fare of no ride is calculated"{
+            CabInvoice().fare(listOf( )) shouldBe 0.0
+        }
+
+        "fare of multiple ride object is calculated"{
             CabInvoice().fare(listOf( Ride(1.0, 2.3), Ride(2.0, 4.9), Ride(10.0, 0.0), Ride(0.0, 20.0))) shouldBe 157.2
         }
     }
